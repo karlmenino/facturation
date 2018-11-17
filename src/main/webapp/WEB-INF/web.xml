@@ -1,0 +1,66 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+    <display-name>Exemple d'Application Web</display-name>
+
+    <servlet>
+    <servlet-name>Detail</servlet-name>
+    <servlet-class>fr.laerce.facturation.Detail</servlet-class>
+        <init-param>
+            <param-name>url</param-name>
+            <param-value>jdbc:postgresql://192.168.99.100/</param-value>
+        </init-param>
+        <init-param>
+            <param-name>user</param-name>
+            <param-value>postgres</param-value>
+        </init-param>
+        <init-param>
+            <param-name>password</param-name>
+            <param-value>secret</param-value>
+        </init-param>
+        <init-param>
+            <param-name>bdd</param-name>
+            <param-value>exemple</param-value>
+        </init-param>
+        <init-param>
+            <param-name>port</param-name>
+            <param-value>5432</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>ListeClients</servlet-name>
+        <servlet-class>fr.laerce.facturation.ListeClients</servlet-class>
+        <init-param>
+            <param-name>url</param-name>
+            <param-value>jdbc:postgresql://192.168.99.100/</param-value>
+        </init-param>
+        <init-param>
+            <param-name>user</param-name>
+            <param-value>postgres</param-value>
+        </init-param>
+        <init-param>
+            <param-name>password</param-name>
+            <param-value>secret</param-value>
+        </init-param>
+        <init-param>
+            <param-name>bdd</param-name>
+            <param-value>exemple</param-value>
+        </init-param>
+        <init-param>
+            <param-name>port</param-name>
+            <param-value>5432</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ListeClients</servlet-name>
+        <url-pattern>/clients.html</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Detail</servlet-name>
+        <url-pattern>/detail.jsp</url-pattern>
+    </servlet-mapping>
+
+</web-app>
