@@ -19,10 +19,10 @@ public class Detail extends HttpServlet {
 
 
     protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        String loc = getServletContext().getInitParameter("loc");
-        String pays = getServletContext().getInitParameter("pays");
-        String nom = getServletContext().getInitParameter("nom");
-//        String pnom = getServletContext().getInitParameter("pnom");
+        String loc = httpServletRequest.getParameter("loc");
+        String pays = httpServletRequest.getParameter("pays");
+        String nom = httpServletRequest.getParameter("nom");
+//        String pnom = httpServletRequest.getParameter("pnom");
         try {
 
             Statement req = conn.createStatement();
@@ -52,11 +52,11 @@ public class Detail extends HttpServlet {
 
     public void init() throws ServletException {
         super.init();
-        String url = getInitParameter("url");
-        String user = getInitParameter("user");
-        String password = getInitParameter("password");
-        String port = getInitParameter("port");
-        String bdd = getInitParameter("bdd");
+        String url = getServletContext().getInitParameter("url");
+        String user = getServletContext().getInitParameter("user");
+        String password = getServletContext().getInitParameter("password");
+        String port = getServletContext().getInitParameter("port");
+        String bdd = getServletContext().getInitParameter("bdd");
         String filename = url + bdd;
         try {
             Class.forName("org.postgresql.Driver");
