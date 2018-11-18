@@ -15,10 +15,10 @@ public class ListeClients extends HttpServlet {
     Connection conn;
 
     protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        String loc = httpServletRequest.getParameter("loc");
-        String pays = httpServletRequest.getParameter("pays");
-        String nom = httpServletRequest.getParameter("nom");
-        String pnom = httpServletRequest.getParameter("pnom");
+        String loc = getServletContext().getInitParameter("loc");
+        String pays = getServletContext().getInitParameter("pays");
+        String nom = getServletContext().getInitParameter("nom");
+        String pnom = getServletContext().getInitParameter("pnom");
         String nb;
         try {
             Statement req = conn.createStatement();
