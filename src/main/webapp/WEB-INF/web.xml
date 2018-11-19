@@ -27,11 +27,24 @@
         <param-value>5432</param-value>
     </context-param>
 
+    <filter>
+        <filter-name>Erreurbdd</filter-name>
+        <filter-class>fr.laerce.facturation.Erreurbdd</filter-class>
+    </filter>
+
+    <!-- déclaration des URL interceptées par ce filtre -->
+    <filter-mapping>
+        <filter-name>Erreurbdd</filter-name>
+        <!-- on aurait pu aussi définir une servlet filtrée, par un élément servlet-name -->
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <listener>
         <listener-class>
             fr.laerce.facturation.listeners.FacturationListener
         </listener-class>
     </listener>
+
 
     <servlet>
     <servlet-name>Detail</servlet-name>
@@ -50,5 +63,7 @@
         <servlet-name>Detail</servlet-name>
         <url-pattern>/detail.jsp</url-pattern>
     </servlet-mapping>
+
+
 
 </web-app>
