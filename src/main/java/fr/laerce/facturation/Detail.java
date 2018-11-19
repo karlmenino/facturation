@@ -26,9 +26,14 @@ public class Detail extends HttpServlet {
 //        String pnom = httpServletRequest.getParameter("pnom");
         try {
 
-            Statement req = conn.createStatement();
-            String update = "update clients set clt_loc='"+loc+"', clt_pays='"+pays+"' where clt_nom='"+nom+"'";
-            req.executeUpdate(update);
+//            Statement req = conn.createStatement();
+//            String update = "update clients set clt_loc='"+loc+"', clt_pays='"+pays+"' where clt_nom='"+nom+"'";
+//            req.executeUpdate(update);
+            PreparedStatement update = (PreparedStatement) getServletContext().getAttribute("update");
+            update.setString (1, loc);
+            update.setString (2, pays);
+            update.setString (3, nom);
+            update.execute ();
             httpServletResponse.sendRedirect("/index.jsp");
 
         } catch (SQLException e) {

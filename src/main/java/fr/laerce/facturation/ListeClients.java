@@ -25,8 +25,16 @@ public class ListeClients extends HttpServlet {
             ResultSet rs = req.executeQuery("SELECT count(*) FROM clients");
             rs.next();
             nb = "C"+ rs.getString(1);
-            String insert = "INSERT INTO clients (clt_num,clt_nom, clt_pnom, clt_loc, clt_pays) VALUES ('"+nb+"','"+nom+"','"+pnom+"','"+loc+"','"+pays+"')";
-            req.executeUpdate(insert);
+            PreparedStatement insert = (PreparedStatement) getServletContext().getAttribute("insert");
+            insert.setString (1, nb);
+            insert.setString (2, nom);
+            insert.setString (3, pnom);
+            insert.setString (4, loc);
+            insert.setString (5, pays);
+            insert.execute ();
+//            httpServletResponse.sendRedirect("/index.jsp");
+//            String insert = "INSERT INTO clients (clt_num,clt_nom, clt_pnom, clt_loc, clt_pays) VALUES ('"+nb+"','"+nom+"','"+pnom+"','"+loc+"','"+pays+"')";
+//            req.executeUpdate(insert);
             doGet(httpServletRequest,httpServletResponse);
         } catch (SQLException e) {
             e.printStackTrace();
