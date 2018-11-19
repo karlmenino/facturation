@@ -6,29 +6,29 @@
     <display-name>Exemple d'Application Web</display-name>
     <listener>
         <listener-class>
-            fr.editions_eni.javaee.listeners.ExempleListener
+            fr.laerce.facturation.listeners.FacturationListener
         </listener-class>
     </listener>
-    <context-param>
-        <param-name>url</param-name>
-        <param-value>jdbc:postgresql://192.168.99.100/</param-value>
-    </context-param>-param>
-    <context-param>
-        <param-name>user</param-name>
-        <param-value>postgres</param-value>
-    </context-param>
-    <context-param>
-        <param-name>password</param-name>
-        <param-value>secret</param-value>
-    </context-param>
-    <context-param>
-        <param-name>bdd</param-name>
-        <param-value>exemple</param-value>
-    </context-param>
-    <context-param>
-        <param-name>port</param-name>
-        <param-value>5432</param-value>
-    </context-param>
+    <!--<context-param>-->
+        <!--<param-name>url</param-name>-->
+        <!--<param-value>jdbc:postgresql://192.168.99.100/</param-vaener>-->
+    <!--<context-param>-param>-->
+    <!--<context-param>-->
+        <!--<param-name>user</param-name>-->
+        <!--<param-value>postgres</param-value>-->
+    <!--</context-param>-->
+    <!--<context-param>-->
+        <!--<param-name>password</param-name>-->
+        <!--<param-value>secret</param-value>-->
+    <!--</context-param>-->
+    <!--<context-param>-->
+        <!--<param-name>bdd</param-name>-->
+        <!--<param-value>exemple</param-value>-->
+    <!--</context-param>-->
+    <!--<context-param>-->
+        <!--<param-name>port</param-name>-->
+        <!--<param-value>5432</param-value>-->
+    <!--</context-param>-->
     <servlet>
     <servlet-name>Detail</servlet-name>
     <servlet-class>fr.laerce.facturation.Detail</servlet-class>

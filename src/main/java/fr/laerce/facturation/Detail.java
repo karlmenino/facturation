@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import fr.laerce.facturation.listeners.FacturationListener;
 import fr.laerce.facturation.model.Client;
 import fr.laerce.facturation.ListeClients;
 
@@ -52,26 +53,27 @@ public class Detail extends HttpServlet {
 
     public void init() throws ServletException {
         super.init();
-        String url = getServletContext().getInitParameter("url");
-        String user = getServletContext().getInitParameter("user");
-        String password = getServletContext().getInitParameter("password");
-        String port = getServletContext().getInitParameter("port");
-        String bdd = getServletContext().getInitParameter("bdd");
-        String filename = url + bdd;
-        try {
-            Class.forName("org.postgresql.Driver");
-            Properties props = new Properties();
-            props.setProperty("user", user);
-            props.setProperty("password", password);
-            conn = DriverManager.getConnection(filename, props);
-//            conn = DriverManager.getConnection("jdbc:postgresql://localhost/exemple", props);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            throw new ServletException("Pas de Driver SQL");
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new ServletException("Pas de connexion à la base");
-        }
+        conn = (Connection) getServletContext().getAttribute("conn");
+//        String url = getServletContext().getInitParameter("url");
+//        String user = getServletContext().getInitParameter("user");
+//        String password = getServletContext().getInitParameter("password");
+//        String port = getServletContext().getInitParameter("port");
+//        String bdd = getServletContext().getInitParameter("bdd");
+//        String filename = url + bdd;
+//        try {
+//            Class.forName("org.postgresql.Driver");
+//            Properties props = new Properties();
+//            props.setProperty("user", user);
+//            props.setProperty("password", password);
+//            conn = DriverManager.getConnection(filename, props);
+////            conn = DriverManager.getConnection("jdbc:postgresql://localhost/exemple", props);
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//            throw new ServletException("Pas de Driver SQL");
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//            throw new ServletException("Pas de connexion à la base");
+//        }
     }
 }
 
