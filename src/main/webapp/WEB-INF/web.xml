@@ -4,6 +4,11 @@
 
 <web-app>
     <display-name>Exemple d'Application Web</display-name>
+    <listener>
+        <listener-class>
+            fr.editions_eni.javaee.listeners.ExempleListener
+        </listener-class>
+    </listener>
     <context-param>
         <param-name>url</param-name>
         <param-value>jdbc:postgresql://192.168.99.100/</param-value>
