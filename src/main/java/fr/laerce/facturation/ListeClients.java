@@ -69,6 +69,7 @@ public class ListeClients extends HttpServlet {
     public void init() throws ServletException {
         super.init();
         conn = (Connection) getServletContext().getAttribute("conn");
+        System.out.println (conn);
 //        String url= getServletContext().getInitParameter("url");
 //        String user= getServletContext().getInitParameter("user");
 //        String password= getServletContext().getInitParameter("password");
